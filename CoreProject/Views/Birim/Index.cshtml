@@ -1,0 +1,30 @@
+﻿@model List<Birim>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+
+    <tr>
+        <th>ID</th>
+        <th>Birim</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.BirimID</td>
+            <td>@x.BirimAd</td>
+            <td><a href="/Birim/DeleteBirim/@x.BirimID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Birim/GetBirim/@x.BirimID" class="btn btn-default" style="background-color:cornflowerblue; color:white">Güncelle</a></td>
+            <td><a href="#" class="btn btn-dark" style="background-color:sandybrown; color:black">Detaylar</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Birim/NewBirim" class="btn btn-success">Yeni Birim</a>

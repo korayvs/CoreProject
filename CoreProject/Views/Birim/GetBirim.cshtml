@@ -1,0 +1,19 @@
+﻿@model Birim
+@{
+    ViewData["Title"] = "GetBirim";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("UpdateBirim", "Birim", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.BirimID)
+    @* <b>Birim ID</b>
+    @Html.TextBoxFor(x => x.BirimID, new { @class = "form-control" })
+    <br /> *@
+    <b>Birim Adı</b>
+    @Html.TextBoxFor(x => x.BirimAd, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-default" style="background-color:cornflowerblue; color:white">Güncelle</button>
+
+}
