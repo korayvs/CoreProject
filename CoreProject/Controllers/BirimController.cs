@@ -46,5 +46,13 @@ namespace CoreProject.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult DetailBirim(int id)
+        {
+            var values = c.Personels.Where(x => x.BirimID == id).ToList();
+            var brmad = c.Birims.Where(x => x.BirimID == id).Select(y => y.BirimAd).FirstOrDefault();
+            ViewBag.brm = brmad;
+            return View(values);
+        }
     }
 }

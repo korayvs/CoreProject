@@ -1,0 +1,30 @@
+﻿@model Personel
+@{
+    ViewData["Title"] = "GetPersonel";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("UpdatePersonel", "Personel", FormMethod.Post))
+{
+
+    @Html.HiddenFor(x => x.PersonelID)
+    @* <b>Personel ID</b>
+    @Html.TextBoxFor(x => x.PersonelID, new { @class = "form-control" })
+    <br /> *@
+    <b>Personel Adı</b>
+    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    <br />
+    <b>Personel Soyadı</b>
+    @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+    <br />
+    <b>Şehir</b>
+    @Html.TextBoxFor(x => x.Sehir, new { @class = "form-control" })
+    <br />
+    <b>Birim</b>
+    @Html.DropDownListFor(x => x.BirimID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-default" style="background-color:cornflowerblue; color:white">Güncelle</button>
+
+}

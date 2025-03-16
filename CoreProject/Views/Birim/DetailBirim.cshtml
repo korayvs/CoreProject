@@ -1,0 +1,41 @@
+﻿@model List<Personel>
+@{
+    ViewData["Title"] = "DetailBirim";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<br />
+<h2>@ViewBag.brm Detayı</h2>
+<br />
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+    </tr>
+
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.PersonelID</td>
+                <td>@x.Ad</td>
+                <td>@x.Soyad</td>
+                <td>@x.Sehir</td>
+            </tr>
+        }
+    }
+
+    else
+    {
+        <tr>
+            <td colspan="4" class="text-center">@ViewBag.brm Detayı Yok.</td>
+        </tr>
+    }
+
+</table>
+<a href="/Birim/Index" class="btn btn-default" style="background-color:sandybrown; color:black">Geri Dön</a>
